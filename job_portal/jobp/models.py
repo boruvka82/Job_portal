@@ -3,9 +3,16 @@ from django.db import models
 
 
 class Teacher(models.Model):
+    language_choices = (
+        ("AJ", "Anglicky jazyk"),
+        ("NJ", "Nemecky jazyk"),
+        ("IT", "Italsky jazyk"),
+        ("RJ", "Rusky jazyk"),
+        ("FJ", "Francouzsky jazyk"),
+        ("SJ", "Spanelsky jazyk"),
+    )
     name = models.CharField(max_length=50)
-    language1 = models.CharField(max_length=50)
-    language2 = models.CharField(max_length=50, null=True, blank=True)
+    language = models.CharField(max_length=50, choices=language_choices)
     price = models.CharField(max_length=10)
     level = models.CharField(max_length=50, null=True, blank=True)
     about_me = models.CharField(max_length=250)
@@ -14,3 +21,5 @@ class Teacher(models.Model):
     # gender = models.CharField(max_length=10)
     email = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name

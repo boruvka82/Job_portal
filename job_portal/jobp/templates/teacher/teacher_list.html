@@ -2,13 +2,12 @@
 {% block content %}
 
     <title>Teacher list</title>
-</head>
-<body>
-<h1>teachers List </h1>
+
+<h1>List of teachers </h1>
 <h1>Seznam ucitelu</h1>
 <ul>
     {% for item in object_list %}
-    <li> Jmeno: {{ item.name }},  Jazyk: {{ item.language1 }}, Jazyk: {{ item.language1 }}, Cena: {{ item.price }}  </li>
+    <li> Jmeno: {{ item.name }},  Jazyk: {{ item.language }}, Cena: {{ item.price }}, Email: {{ item.email}} <a href='{% url "teacher_update" item.pk %}'> Update</a> </li>
     {% endfor %}
 </ul>
 
