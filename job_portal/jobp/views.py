@@ -1,36 +1,24 @@
-from django.shortcuts import render
-from django.views.generic import CreateView, ListView, TemplateView, UpdateView
+# from django.shortcuts import render
+from django.views.generic import CreateView, ListView, TemplateView
 import jobp.models as models
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 
 class IndexView(TemplateView):
     template_name = "index.html"
 
 
-class TeacherCreateView(CreateView):
+class TeacherCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = models.Teacher
-    template_name = "teacher/create_teacher.html"
-    fields = ["name", "status", "phone_number", "email", "identification_number"]
+    template_name = "teacher/teacher_create.html"
+    fields = ["name", "language1", "language2", "level", "about_me", "email"]
     success_url = reverse_lazy("index")
-
-class StudentCreateView(CreateView):
-    model = models.Student
-    template_name = "student/create_student.html"
-    fields = ["company", "sales_manager", "description", "status", "value"]
-    success_url = reverse_lazy("index")
+    success_message = "Data was updated successfully."
 
 
 class TeacherListView(ListView):
     model = models.Teacher
-    template_name = "teacher/list_teacher.html"
+    template_name = "teacher/teacher_list.html"
+    fields = ["name", "language1", "language2", "level", "about_me", "location", "contact"]
     success_url = reverse_lazy("index")
-
-class StudentListView(ListView):
-    model = models.Student
-    template_name = "student/list_student.html"
-    success_url = reverse_lazy("index")
-
-
-
-
-

@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "base.html" %}
+{% block content %}
+
     <title>Teacher list</title>
 </head>
 <body>
+<h1>teachers List </h1>
+<h1>Seznam ucitelu</h1>
+<ul>
+    {% for item in object_list %}
+    <li> Jmeno: {{ item.name }},  Jazyk: {{ item.language1 }}, Jazyk: {{ item.language1 }}, Cena: {{ item.price }}  </li>
+    {% endfor %}
+</ul>
 
-</body>
-</html>
+{% endblock %}

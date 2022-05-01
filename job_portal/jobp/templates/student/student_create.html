@@ -5,6 +5,10 @@
     <title>Student Create</title>
 </head>
 <body>
-
+<h1>Create new student</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">save</button>
 </body>
 </html>
