@@ -14,7 +14,7 @@ class TeacherCreateView(PermissionRequiredMixin, LoginRequiredMixin, SuccessMess
     permission_required = "jobp.add_teacher"
     model = models.Teacher
     template_name = "teacher/teacher_create.html"
-    fields = ["name", "language", "level","price", "about_me", "email"]
+    fields = ["name", "language", "level", "price", "about_me", "email"]
     success_url = reverse_lazy("index")
     success_message = "Data was updated successfully."
 

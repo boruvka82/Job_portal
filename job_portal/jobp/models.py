@@ -13,13 +13,12 @@ class Teacher(models.Model):
     )
     name = models.CharField(max_length=50)
     language = models.CharField(max_length=50, choices=language_choices)
-    price = models.CharField(max_length=10)
     level = models.CharField(max_length=50, null=True, blank=True)
     about_me = models.CharField(max_length=250)
+    email = models.CharField(max_length=50)
     # location = models.CharField(max_length=10)
     # image = models.ImageField(upload_to="")
-    # gender = models.CharField(max_length=10)
-    email = models.CharField(max_length=50)
+    # gender = models.CharField(max_length=10
 
     def __str__(self):
         return self.name

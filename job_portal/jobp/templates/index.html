@@ -11,10 +11,6 @@
 <div>Hledej jazyk: </div>
 ###tady dropdown s jazyky, na zaklade co vyplni ucitele-nebo vymyslime moznosti a pokud nebude ucitel,napise se,ze bohuzel:) </p>
 
-    {% for item in object_list %}
- <li> Jmeno: {{ item.name }}, Jazyk: {{ item.language }}, Cena: {{ item.price }} <a href='{% url "teacher_list" %}'> Update</a> </li>
-    {% endfor %}
-
     <button type="submit" class="btn btn-primary">Hledej</button>
 </form>
 ......
